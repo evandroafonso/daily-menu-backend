@@ -2,9 +2,11 @@ package com.daily.menu.domain.model;
 
 import javax.persistence.Entity;
 
-@Entity
-public class Menu {
+import com.daily.menu.domain.model.baseEntity.BaseEntity;
 
-	private Long id;
+@Entity
+public class Menu extends BaseEntity {
+
+	
 	
 }
