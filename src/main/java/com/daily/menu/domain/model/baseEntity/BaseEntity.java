@@ -1,13 +1,15 @@
 package com.daily.menu.domain.model.baseEntity;
 
 import java.util.Date;
+import java.util.UUID;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-
-import lombok.Data;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 @MappedSuperclass
 public class BaseEntity {
@@ -16,10 +18,15 @@ public class BaseEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private Long uuid;
+	@NotNull
+	private UUID uuid = UUID.randomUUID();;
 	
+	@NotNull
+	@Temporal(TemporalType.TIME)
 	private Date inclusionDate;
 	
+	@NotNull
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date changeDate;
 	
 	private Long idUser;
@@ -32,11 +39,11 @@ public class BaseEntity {
 		this.id = id;
 	}
 
-	public Long getUuid() {
+	public UUID getUuid() {
 		return uuid;
 	}
 
-	public void setUuid(Long uuid) {
+	public void setUuid(UUID uuid) {
 		this.uuid = uuid;
 	}
 
