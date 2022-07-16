@@ -5,9 +5,11 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.daily.menu.domain.model.Product;
@@ -19,16 +21,25 @@ public class ProductController {
     @Autowired
     private ProductRepository productRepository;
 
-    @RequestMapping(value = "/product", method = RequestMethod.GET)
-    public List<Product> Get() {
-        return productRepository.findAll();
-    }
-
     @RequestMapping(value = "/product", method =  RequestMethod.POST)
     public Product Post(@Valid @RequestBody Product product)
     {
         return productRepository.save(product);
     }
+    
+    @ResponseBody
+    @RequestMapping(value = "/product/{id}", method =  RequestMethod.PUT)
+    public Product Put(@Valid @RequestBody Product product, @PathVariable("id") String id)
+    {
+        return productRepository.save(product);
+    }    
+    
+    @RequestMapping(value = "/product", method = RequestMethod.GET)
+    public List<Product> Get() {
+        return productRepository.findAll();
+    }
+
+
 
 //    @RequestMapping(value = "/pessoa/{id}", method =  RequestMethod.PUT)
 //    public ResponseEntity<Pessoa> Put(@PathVariable(value = "id") long id, @Valid @RequestBody Pessoa newPessoa)
