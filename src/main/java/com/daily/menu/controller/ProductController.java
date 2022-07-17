@@ -12,19 +12,23 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.daily.menu.domain.model.Product;
+import com.daily.menu.api.ProductApi;
+import com.daily.menu.entity.Product;
 import com.daily.menu.repository.ProductRepository;
+import com.daily.menu.service.ProductService;
 
 @RestController
 public class ProductController {
 	
     @Autowired
     private ProductRepository productRepository;
+    
+    @Autowired 
+    private ProductService productService;
 
     @RequestMapping(value = "/product", method =  RequestMethod.POST)
-    public Product Post(@Valid @RequestBody Product product)
-    {
-        return productRepository.save(product);
+    public ProductApi Post(@Valid @RequestBody ProductApi api) {
+        return productService.save(api);
     }
     
     @ResponseBody

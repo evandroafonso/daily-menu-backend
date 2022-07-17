@@ -1,9 +1,10 @@
-package com.daily.menu.domain.model;
+package com.daily.menu.entity;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
 
-import com.daily.menu.domain.model.baseEntity.BaseEntity;
+import com.daily.menu.entity.baseEntity.BaseEntity;
+
 
 @Entity
 public class Product extends BaseEntity{
