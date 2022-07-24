@@ -23,7 +23,7 @@ public class BaseEntity {
 	private Long id;
 	
 	@NotNull
-	private UUID uuid = UUID.randomUUID();;
+	private String uuid = UUID.randomUUID().toString();
 	
 	@CreationTimestamp
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -45,11 +45,11 @@ public class BaseEntity {
 		this.id = id;
 	}
 
-	public UUID getUuid() {
+	public String getUuid() {
 		return uuid;
 	}
 
-	public void setUuid(UUID uuid) {
+	public void setUuid(String uuid) {
 		this.uuid = uuid;
 	}
 
