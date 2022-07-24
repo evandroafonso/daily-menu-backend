@@ -31,16 +31,15 @@ public class ProductController {
         return productService.save(api);
     }
     
-    @ResponseBody
-    @RequestMapping(value = "/product/{id}", method =  RequestMethod.PUT)
-    public Product Put(@Valid @RequestBody Product product, @PathVariable("id") String id)
-    {
-        return productRepository.save(product);
-    }    
+//    @ResponseBody
+//    @RequestMapping(value = "/product/{id}", method =  RequestMethod.PUT)
+//    public ProductApi Put(@Valid @RequestBody ProductApi api, @PathVariable("id") Long id){
+//        return productService.save(api);
+//    }    
     
     @RequestMapping(value = "/product", method = RequestMethod.GET)
-    public List<Product> Get() {
-        return productRepository.findAll();
+    public List<ProductApi> Get() {
+        return productService.getAllProducts();
     }
 
 

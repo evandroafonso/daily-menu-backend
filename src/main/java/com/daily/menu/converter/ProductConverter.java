@@ -1,5 +1,9 @@
 package com.daily.menu.converter;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Component;
 
 import com.daily.menu.api.ProductApi;
@@ -30,5 +34,14 @@ public class ProductConverter {
 		return api;
 	}
 	
+	public List<ProductApi> toListApi(List<Product> entityList){
+		
+		List<ProductApi> apiList = new ArrayList<ProductApi>();
+	
+		entityList.stream().forEach(entity -> apiList.add(this.toApi(entity)));
+		
+		return apiList;
+	        
+	}
 	
 }

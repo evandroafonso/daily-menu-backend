@@ -1,5 +1,8 @@
 package com.daily.menu.service;
 
+import java.util.List;
+import java.util.Optional;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,5 +29,13 @@ public class ProductService {
 		
 		return productConverter.toApi(productRepository.save(entity));
 	}
+
+	public List<ProductApi> getAllProducts() {
+		
+		List<Product> entity = productRepository.findAll();
+		
+		return productConverter.toListApi(entity);
+	}
+	
 	
 }
