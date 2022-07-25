@@ -2,7 +2,7 @@
 
 ### _Organize your daily food quickly_
 
-Create your daily menu and organize your eating routine with Daily Menu
+Create your daily menu and organize your food routine with Daily Menu
 
 ### License
 
