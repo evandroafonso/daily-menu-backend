@@ -9,5 +9,4 @@ public class DailyMenuApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DailyMenuApplication.class, args);
 	}
-
 }

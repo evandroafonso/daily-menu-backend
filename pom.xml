@@ -46,6 +46,25 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+   			<groupId>org.hibernate.validator</groupId>
+    		<artifactId>hibernate-validator</artifactId>
+		</dependency>
+		<dependency>
+		   <groupId>io.springfox</groupId>
+		   <artifactId>springfox-boot-starter</artifactId>
+		   <version>3.0.0</version>
+		</dependency>
+		<dependency>
+		    <groupId>io.springfox</groupId>
+		    <artifactId>springfox-swagger2</artifactId>
+		    <version>3.0.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -53,6 +72,25 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+			<plugin> 
+    		<groupId>org.flywaydb</groupId> 
+    			<artifactId>flyway-maven-plugin</artifactId> 
+    			<version>6.5.5</version> 
+    			<configuration> 
+			        <url>jdbc:mysql://localhost/daily_menu</url> 
+			        <user>root</user> 
+			        <password>sabatke12</password>
+			        <locations>classpath:db/migration</locations> 
+			    </configuration>
 			</plugin>
 		</plugins>
 	</build>
