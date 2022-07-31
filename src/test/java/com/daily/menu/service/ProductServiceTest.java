@@ -1,14 +1,18 @@
 package com.daily.menu.service;
 
-import static org.junit.jupiter.api.Assertions.*;
-
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import com.daily.menu.entity.Product;
 
 class ProductServiceTest {
 
 	@Test
-	void test() {
-		fail("Not yet implemented");
+	@DisplayName("Teste Cadastro Produto")
+	void register() {
+		Product product = new Product();
+		
+		
 	}
 
 }

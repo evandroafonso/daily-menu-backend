@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.daily.menu.api.ProductApi;
-import com.daily.menu.repository.ProductRepository;
 import com.daily.menu.service.ProductService;
 
 import io.swagger.annotations.ApiOperation;
@@ -30,7 +29,9 @@ public class ProductController {
     	    @ApiResponse(code = 403, message = "You don't have permission to access this resource."),
     	    @ApiResponse(code = 500, message = "An exception was thrown"),
     	})
-    @RequestMapping(value = "/product", method =  RequestMethod.POST)
+    //TODO: PostMapping add
+    //TODO: refactor with some like @RequestMapping("/api/product")
+    @RequestMapping(value = "/product", method =  RequestMethod.POST) 
     public ProductApi Post(@Valid @RequestBody ProductApi api) {
         return productService.save(api);
     }

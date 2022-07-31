@@ -40,8 +40,7 @@ public class ProductConverter {
 	
 		entityList.stream().forEach(entity -> apiList.add(this.toApi(entity)));
 		
-		return apiList;
-	        
+		return apiList;       
 	}
 	
 }

@@ -1,4 +1,4 @@
-CREATE TABLE product (
+CREATE TABLE daily_menu.product (
   id bigint NOT NULL AUTO_INCREMENT,
   change_date datetime(6) DEFAULT NULL,
   id_user bigint DEFAULT NULL,
