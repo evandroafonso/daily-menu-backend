@@ -25,7 +25,6 @@ public class UserService {
 	@Autowired
 	private UserConverter userConverter;
 	
-
 	public UserApi save(UserApi api) {
 		
 		User entity = userConverter.toEntity(api);
