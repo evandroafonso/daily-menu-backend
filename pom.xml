@@ -98,7 +98,6 @@
 			<plugin> 
     		<groupId>org.flywaydb</groupId> 
     			<artifactId>flyway-maven-plugin</artifactId> 
-    			<version>6.5.5</version> 
     			<configuration> 
 			        <url>jdbc:mysql://localhost/daily_menu</url> 
 			        <user>root</user> 

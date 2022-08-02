@@ -2,6 +2,7 @@ package com.daily.menu.security;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -15,6 +16,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.auth0.jwt.JWT;
+import com.auth0.jwt.algorithms.Algorithm;
 import com.daily.menu.data.UserDataDetail;
 import com.daily.menu.entity.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -22,6 +24,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class JWTAutenticationFilter extends UsernamePasswordAuthenticationFilter {
 
 	public static final int TOKEN_EXPIRATION = 900_000;
+	public static final String TOKEN_PASSWORD = "d36ed990-6662-425e-acf6-f333b4d70bb4";
 	
 	private final AuthenticationManager authenticationManager;
 	
@@ -55,7 +58,12 @@ public class JWTAutenticationFilter extends UsernamePasswordAuthenticationFilter
 		UserDataDetail userDataDetail = (UserDataDetail) authResult.getPrincipal();
 		
 		String token = JWT.create()
-				.withSubject(userDataDetail.getUsername());
+				.withSubject(userDataDetail.getUsername())
+				.withExpiresAt(new Date(System.currentTimeMillis() + TOKEN_EXPIRATION))
+				.sign(Algorithm.HMAC512(TOKEN_PASSWORD));
+		
+		response.getWriter().write(token);
+		response.getWriter().flush();
 	}
 	
 	

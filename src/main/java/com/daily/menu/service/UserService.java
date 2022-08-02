@@ -2,17 +2,11 @@ package com.daily.menu.service;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.daily.menu.api.ProductApi;
 import com.daily.menu.api.UserApi;
 import com.daily.menu.converter.UserConverter;
-import com.daily.menu.entity.Product;
 import com.daily.menu.entity.User;
 import com.daily.menu.repository.UserRepository;
 
