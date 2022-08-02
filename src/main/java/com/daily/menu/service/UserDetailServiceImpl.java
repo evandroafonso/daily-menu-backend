@@ -12,11 +12,11 @@ import com.daily.menu.entity.User;
 import com.daily.menu.repository.UserRepository;
 
 @Component
-public class UserDetailImpl implements UserDetailsService {
+public class UserDetailServiceImpl implements UserDetailsService {
 	
 	private final UserRepository userRepository;
 	
-	public UserDetailImpl(UserRepository userRepository) {
+	public UserDetailServiceImpl(UserRepository userRepository) {
 		this.userRepository = userRepository;
 	}
 

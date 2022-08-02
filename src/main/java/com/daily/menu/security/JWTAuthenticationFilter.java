@@ -21,14 +21,14 @@ import com.daily.menu.data.UserDataDetail;
 import com.daily.menu.entity.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class JWTAutenticationFilter extends UsernamePasswordAuthenticationFilter {
+public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
 	public static final int TOKEN_EXPIRATION = 900_000;
 	public static final String TOKEN_PASSWORD = "d36ed990-6662-425e-acf6-f333b4d70bb4";
 	
 	private final AuthenticationManager authenticationManager;
 	
-	public JWTAutenticationFilter(AuthenticationManager authenticationManager) {
+	public JWTAuthenticationFilter(AuthenticationManager authenticationManager) {
 		this.authenticationManager = authenticationManager;
 	}
 	
