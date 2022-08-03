@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -22,14 +23,14 @@ import com.daily.menu.entity.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
-
-	public static final int TOKEN_EXPIRATION = 900_000;
-	public static final String TOKEN_PASSWORD = "d36ed990-6662-425e-acf6-f333b4d70bb4";
+	
+	public static final String TOKEN_PREFIX = "Bearer ";
 	
 	private final AuthenticationManager authenticationManager;
 	
 	public JWTAuthenticationFilter(AuthenticationManager authenticationManager) {
 		this.authenticationManager = authenticationManager;
+		setFilterProcessesUrl("/api/login"); 
 	}
 	
 	@Override
@@ -40,7 +41,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 			User user = new ObjectMapper().readValue(request.getInputStream(), User.class);
 			
 			return authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
-					user.getLogin(),
+					user.getUsername(),
 					user.getPassword(),
 					new ArrayList<>()
 					));
@@ -59,8 +60,8 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 		
 		String token = JWT.create()
 				.withSubject(userDataDetail.getUsername())
-				.withExpiresAt(new Date(System.currentTimeMillis() + TOKEN_EXPIRATION))
-				.sign(Algorithm.HMAC512(TOKEN_PASSWORD));
+				.withExpiresAt(new Date(System.currentTimeMillis() + SecurityConstants.EXPIRATION_TIME))
+				.sign(Algorithm.HMAC512(SecurityConstants.TOKEN_PASSWORD));
 		
 		response.getWriter().write(token);
 		response.getWriter().flush();
