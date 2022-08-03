@@ -38,12 +38,6 @@ public class ProductController {
         return productService.save(api);
     }
     
-//    @ResponseBody
-//    @RequestMapping(value = "/product/{id}", method =  RequestMethod.PUT)
-//    public ProductApi Put(@Valid @RequestBody ProductApi api, @PathVariable("id") Long id){
-//        return productService.save(api);
-//    }    
-    
     @ApiOperation(value = "Returns a list of products")
     @ApiResponses(value = {
     	    @ApiResponse(code = 200, message = "A product list was successfully returned"),
@@ -56,31 +50,4 @@ public class ProductController {
         return productService.getAllProducts();
     }
 
-
-
-//    @RequestMapping(value = "/pessoa/{id}", method =  RequestMethod.PUT)
-//    public ResponseEntity<Pessoa> Put(@PathVariable(value = "id") long id, @Valid @RequestBody Pessoa newPessoa)
-//    {
-//        Optional<Pessoa> oldPessoa = _pessoaRepository.findById(id);
-//        if(oldPessoa.isPresent()){
-//            Pessoa pessoa = oldPessoa.get();
-//            pessoa.setNome(newPessoa.getNome());
-//            _pessoaRepository.save(pessoa);
-//            return new ResponseEntity<Pessoa>(pessoa, HttpStatus.OK);
-//        }
-//        else
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//    }
-//
-//    @RequestMapping(value = "/pessoa/{id}", method = RequestMethod.DELETE)
-//    public ResponseEntity<Object> Delete(@PathVariable(value = "id") long id)
-//    {
-//        Optional<Pessoa> pessoa = _pessoaRepository.findById(id);
-//        if(pessoa.isPresent()){
-//            _pessoaRepository.delete(pessoa.get());
-//            return new ResponseEntity<>(HttpStatus.OK);
-//        }
-//        else
-//            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-//    }
 }

@@ -15,14 +15,6 @@ import com.daily.menu.service.UserDetailServiceImpl;
 @Configuration
 public class JWTConfiguration {
 
-    private final UserDetailServiceImpl userDetailServiceImpl;
-    private final PasswordEncoder passwordEncoder;
-
-    public JWTConfiguration(UserDetailServiceImpl usuarioService, PasswordEncoder passwordEncoder) {
-        this.userDetailServiceImpl = usuarioService;
-        this.passwordEncoder = passwordEncoder;
-    }
-
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
             throws Exception {
@@ -32,7 +24,8 @@ public class JWTConfiguration {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests()
-        .antMatchers(HttpMethod.POST, "/login").permitAll()
+        .antMatchers(HttpMethod.POST, "/api/login").permitAll()
+        .antMatchers(HttpMethod.POST, "/api/user").permitAll()
         .anyRequest().authenticated()
         .and()
         .addFilter(new JWTAuthenticationFilter(authenticationManager(null)))
