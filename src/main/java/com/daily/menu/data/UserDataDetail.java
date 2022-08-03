@@ -30,7 +30,7 @@ public class UserDataDetail implements UserDetails{
 
 	@Override
 	public String getUsername() {
-		return user.orElse(new User()).getLogin();
+		return user.orElse(new User()).getUsername();
 	}
 
 	@Override

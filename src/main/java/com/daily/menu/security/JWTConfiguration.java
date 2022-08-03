@@ -7,18 +7,21 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+
+import com.daily.menu.service.UserDetailServiceImpl;
 
 @Configuration
 public class JWTConfiguration {
 
-//    private final UserDetailServiceImpl userDetailServiceImpl;
-//    private final PasswordEncoder passwordEncoder;
-//
-//    public JWTConfiguration(UserDetailServiceImpl usuarioService, PasswordEncoder passwordEncoder) {
-//        this.userDetailServiceImpl = usuarioService;
-//        this.passwordEncoder = passwordEncoder;
-//    }
+    private final UserDetailServiceImpl userDetailServiceImpl;
+    private final PasswordEncoder passwordEncoder;
+
+    public JWTConfiguration(UserDetailServiceImpl usuarioService, PasswordEncoder passwordEncoder) {
+        this.userDetailServiceImpl = usuarioService;
+        this.passwordEncoder = passwordEncoder;
+    }
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
@@ -33,7 +36,7 @@ public class JWTConfiguration {
         .anyRequest().authenticated()
         .and()
         .addFilter(new JWTAuthenticationFilter(authenticationManager(null)))
-        .addFilter(new JWTValidateFilter(authenticationManager(null)))
+        .addFilter(new JWTAuthorizationFilter(authenticationManager(null)))
         .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         return http.build();
     }
