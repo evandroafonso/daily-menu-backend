@@ -15,7 +15,7 @@ public class UserConverter {
 		User entity = new User();
 		
 		entity.setId(api.getId());
-		entity.setUsername(api.getLogin());
+		entity.setUsername(api.getEmail());
 		entity.setPassword(api.getPassword());
 		
 		return entity;
@@ -25,7 +25,7 @@ public class UserConverter {
 		UserApi api = new UserApi();
 		
 		api.setId(entity.getId());
-		api.setLogin(entity.getUsername());
+		api.setEmail(entity.getUsername());
 		api.setPassword(entity.getPassword());
 		
 		return api;
