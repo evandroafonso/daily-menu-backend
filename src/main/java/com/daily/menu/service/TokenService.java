@@ -21,12 +21,12 @@ public class TokenService {
 
 		return Jwts.builder().setSubject(usuario.getId().toString())
                              .setIssuedAt(new Date())
-                             .signWith(SignatureAlgorithm.HS256, SecurityConstants.TOKEN_PASSWORD).compact();
+                             .signWith(SignatureAlgorithm.HS256, "1234").compact();
 	}
 	
 	public boolean isTokenValid(String token) {
 		try {
-			Jwts.parser().setSigningKey(SecurityConstants.TOKEN_PASSWORD).parseClaimsJws(token);
+			Jwts.parser().setSigningKey("1234").parseClaimsJws(token);
 			return true;
 		} catch (Exception e) {
 			return false;
@@ -34,7 +34,7 @@ public class TokenService {
 	}
 
 	public Long getTokenId(String token) {
-		Claims body = Jwts.parser().setSigningKey(SecurityConstants.TOKEN_PASSWORD).parseClaimsJws(token).getBody();
+		Claims body = Jwts.parser().setSigningKey("12341").parseClaimsJws(token).getBody();
 		return Long.valueOf(body.getSubject());
 	}
 	

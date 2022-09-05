@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.BeanIds;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -43,11 +44,22 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers(HttpMethod.POST, "/api/user").permitAll()
         	.anyRequest().authenticated()
         	.and().csrf().disable()
+        	.cors()
+        	.and()
         	.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
         	// token filter configuration
         	.and().addFilterBefore(new TokenAuthenticationFilter(tokenService, userRepository), UsernamePasswordAuthenticationFilter.class);
     }
     
+    
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		// cria uma conta default
+		auth.inMemoryAuthentication()
+			.withUser("email")
+			.password("password")
+			.roles("ADMIN");
+	}
 
     
 //    @Bean
