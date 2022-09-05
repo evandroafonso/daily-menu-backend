@@ -19,8 +19,7 @@ public class TokenService {
 
 		User usuario = (User) authentication.getPrincipal();
 
-		return Jwts.builder().setIssuer("dailymenu")
-                             .setSubject(usuario.getId().toString())
+		return Jwts.builder().setSubject(usuario.getId().toString())
                              .setIssuedAt(new Date())
                              .signWith(SignatureAlgorithm.HS256, SecurityConstants.TOKEN_PASSWORD).compact();
 	}

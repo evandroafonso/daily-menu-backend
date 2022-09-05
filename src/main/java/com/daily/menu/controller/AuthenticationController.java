@@ -16,7 +16,6 @@ import com.daily.menu.api.UserApi;
 import com.daily.menu.service.TokenService;
 
 @RestController
-@RequestMapping("/auth")
 public class AuthenticationController {
 	
 	@Autowired
@@ -25,7 +24,7 @@ public class AuthenticationController {
 	@Autowired
 	private TokenService tokenService;
 	
-	@PostMapping
+	@PostMapping("/api/login")
 	public ResponseEntity<TokenApi> auth(@RequestBody @Validated UserApi userApi){
 		UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(userApi.getEmail(), userApi.getPassword());
 		
