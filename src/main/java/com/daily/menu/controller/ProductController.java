@@ -15,39 +15,36 @@ import org.springframework.web.bind.annotation.RestController;
 import com.daily.menu.api.ProductApi;
 import com.daily.menu.service.ProductService;
 
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
 @RestController
 @RequestMapping("/api/product")
 public class ProductController {
-	
-    @Autowired 
+
+    @Autowired
     private ProductService productService;
 
-    @ApiOperation(value = "Register a product")
-    @ApiResponses(value = {
-    	    @ApiResponse(code = 200, message = "Product registered successfully"),
-    	    @ApiResponse(code = 403, message = "You don't have permission to access this resource."),
-    	    @ApiResponse(code = 500, message = "An exception was thrown"),
-    	})
+    @Operation(summary = "Register a product")
+    @ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Product registered successfully"),
+	    @ApiResponse(responseCode = "403", description = "You don't have permission to access this resource."),
+	    @ApiResponse(responseCode = "500", description = "An exception was thrown"), })
     @PostMapping()
-    @RequestMapping(method =  RequestMethod.POST) 
+    @RequestMapping(method = RequestMethod.POST)
     public ProductApi Post(@Valid @RequestBody ProductApi api) {
-        return productService.save(api);
+	return productService.save(api);
     }
-    
-    @ApiOperation(value = "Returns a list of products")
+
+    @Operation(summary = "Returns a list of products")
     @ApiResponses(value = {
-    	    @ApiResponse(code = 200, message = "A product list was successfully returned"),
-    	    @ApiResponse(code = 403, message = "You don't have permission to access this resource."),
-    	    @ApiResponse(code = 500, message = "An exception was thrown"),
-    	})
+	    @ApiResponse(responseCode = "200", description = "A product list was successfully returned"),
+	    @ApiResponse(responseCode = "403", description = "You don't have permission to access this resource."),
+	    @ApiResponse(responseCode = "500", description = "An exception was thrown"), })
     @GetMapping()
     @RequestMapping(method = RequestMethod.GET)
     public List<ProductApi> Get() {
-        return productService.getAllProducts();
+	return productService.getAllProducts();
     }
 
 }

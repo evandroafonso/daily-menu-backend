@@ -18,9 +18,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.daily.menu.api.UserApi;
 import com.daily.menu.service.UserService;
 
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 
 @RestController
 @RequestMapping("/api/user")
@@ -35,10 +35,10 @@ public class UserController {
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    @ApiOperation(value = "Register a user")
-    @ApiResponses(value = { @ApiResponse(code = 200, message = "User registered successfully"),
-	    @ApiResponse(code = 403, message = "You don't have permission to access this resource."),
-	    @ApiResponse(code = 500, message = "An exception was thrown"), })
+    @Operation(summary = "Register a user")
+    @ApiResponses(value = { @ApiResponse(responseCode = "200", description = "User registered successfully"),
+	    @ApiResponse(responseCode = "403", description = "You don't have permission to access this resource."),
+	    @ApiResponse(responseCode = "500", description = "An exception was thrown"), })
     @PostMapping()
     @RequestMapping(method = RequestMethod.POST)
     public UserApi Post(@Valid @RequestBody UserApi api) {
@@ -46,10 +46,10 @@ public class UserController {
 	return userService.save(api);
     }
 
-    @ApiOperation(value = "List all users")
-    @ApiResponses(value = { @ApiResponse(code = 200, message = "User listed successfully"),
-	    @ApiResponse(code = 403, message = "You don't have permission to access this resource."),
-	    @ApiResponse(code = 500, message = "An exception was thrown"), })
+    @Operation(summary = "List all users")
+    @ApiResponses(value = { @ApiResponse(responseCode = "200", description = "User listed successfully"),
+	    @ApiResponse(responseCode = "403", description = "You don't have permission to access this resource."),
+	    @ApiResponse(responseCode = "500", description = "An exception was thrown"), })
     @GetMapping("/listAll")
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<UserApi>> listAll() {
