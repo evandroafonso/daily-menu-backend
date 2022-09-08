@@ -27,12 +27,12 @@ public class UserService {
 	return userConverter.toApi(userRepository.save(entity));
     }
 
-    public List<UserApi> getAllUsers() {
-
-	List<User> entity = userRepository.findAll();
-
-	return userConverter.toListApi(entity);
-    }
+//    public List<UserApi> getAllUsers() {
+//
+//	List<User> entity = userRepository.findAll();
+//
+//	return userConverter.toListApi(entity);
+//    }
 
     public UserApi getUserByEmail(String email) {
 
