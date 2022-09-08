@@ -2,7 +2,9 @@ package com.daily.menu.entity;
 
 import java.util.Collection;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,10 +12,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.daily.menu.entity.baseEntity.BaseEntity;
 
 @Entity
+@Table(name = "user")
 public class User extends BaseEntity implements UserDetails {
 
 	private static final long serialVersionUID = 1L;
 
+	@Column(name = "username")
 	private String email;
 	
 	private String password;
