@@ -24,36 +24,32 @@ import io.swagger.annotations.ApiResponses;
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
-	
-    @Autowired 
+
+    @Autowired
     private UserService userService;
-    
+
     @Autowired
     private PasswordEncoder passwordEncoder;
-    
+
     @ApiOperation(value = "Register a user")
-    @ApiResponses(value = {
-    	    @ApiResponse(code = 200, message = "User registered successfully"),
-    	    @ApiResponse(code = 403, message = "You don't have permission to access this resource."),
-    	    @ApiResponse(code = 500, message = "An exception was thrown"),
-    	})
+    @ApiResponses(value = { @ApiResponse(code = 200, message = "User registered successfully"),
+	    @ApiResponse(code = 403, message = "You don't have permission to access this resource."),
+	    @ApiResponse(code = 500, message = "An exception was thrown"), })
     @PostMapping()
-    @RequestMapping(method =  RequestMethod.POST) 
+    @RequestMapping(method = RequestMethod.POST)
     public UserApi Post(@Valid @RequestBody UserApi api) {
-    	api.setPassword(passwordEncoder.encode(api.getPassword()));
-        return userService.save(api);
+	api.setPassword(passwordEncoder.encode(api.getPassword()));
+	return userService.save(api);
     }
-    
+
     @ApiOperation(value = "Register a user")
-    @ApiResponses(value = {
-    	    @ApiResponse(code = 200, message = "User listed successfully"),
-    	    @ApiResponse(code = 403, message = "You don't have permission to access this resource."),
-    	    @ApiResponse(code = 500, message = "An exception was thrown"),
-    	})
-	@GetMapping("/listAll")
-	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List<UserApi>> listAll(){
-		return ResponseEntity.ok(userService.getAllUsers());
-	}
+    @ApiResponses(value = { @ApiResponse(code = 200, message = "User listed successfully"),
+	    @ApiResponse(code = 403, message = "You don't have permission to access this resource."),
+	    @ApiResponse(code = 500, message = "An exception was thrown"), })
+    @GetMapping("/listAll")
+    @RequestMapping(method = RequestMethod.GET)
+    public ResponseEntity<List<UserApi>> listAll() {
+	return ResponseEntity.ok(userService.getAllUsers());
+    }
 
 }

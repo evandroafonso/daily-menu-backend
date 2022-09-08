@@ -13,10 +13,10 @@ public class DailyMenuApplication {
 		SpringApplication.run(DailyMenuApplication.class, args);
 	}
 	
-	@Bean
-	public PasswordEncoder getPassWordEncoder() {
-		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		return encoder;
-	}
-	
+//	@Bean
+//	public PasswordEncoder getPassWordEncoder() {
+//		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+//		return encoder;
+//	}
+//	
 }
