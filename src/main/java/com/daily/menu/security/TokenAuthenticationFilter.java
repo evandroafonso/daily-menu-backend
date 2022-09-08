@@ -19,11 +19,11 @@ import com.daily.menu.service.TokenService;
 public class TokenAuthenticationFilter extends OncePerRequestFilter {
 
     private final TokenService tokenService;
-    private final UserRepository UserRepository;
+    private final UserRepository userRepository;
 
-    public TokenAuthenticationFilter(TokenService tokenService, UserRepository UserRepository) {
+    public TokenAuthenticationFilter(TokenService tokenService, UserRepository userRepository) {
 	this.tokenService = tokenService;
-	this.UserRepository = UserRepository;
+	this.userRepository = userRepository;
     }
 
     @Override
@@ -42,7 +42,7 @@ public class TokenAuthenticationFilter extends OncePerRequestFilter {
     private void authenticate(String tokenFromHeader) {
 	Long id = tokenService.getTokenId(tokenFromHeader);
 
-	Optional<User> optionalUser = UserRepository.findById(id);
+	Optional<User> optionalUser = userRepository.findById(id);
 
 	if (optionalUser.isPresent()) {
 

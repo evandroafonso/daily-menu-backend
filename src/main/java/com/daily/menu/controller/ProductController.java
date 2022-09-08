@@ -31,8 +31,7 @@ public class ProductController {
 	    @ApiResponse(responseCode = "403", description = "You don't have permission to access this resource."),
 	    @ApiResponse(responseCode = "500", description = "An exception was thrown"), })
     @PostMapping()
-    @RequestMapping(method = RequestMethod.POST)
-    public ProductApi Post(@Valid @RequestBody ProductApi api) {
+    public ProductApi save(@Valid @RequestBody ProductApi api) {
 	return productService.save(api);
     }
 
@@ -41,9 +40,8 @@ public class ProductController {
 	    @ApiResponse(responseCode = "200", description = "A product list was successfully returned"),
 	    @ApiResponse(responseCode = "403", description = "You don't have permission to access this resource."),
 	    @ApiResponse(responseCode = "500", description = "An exception was thrown"), })
-    @GetMapping()
-    @RequestMapping(method = RequestMethod.GET)
-    public List<ProductApi> Get() {
+    @GetMapping("/listAll")
+    public List<ProductApi> listAll() {
 	return productService.getAllProducts();
     }
 

@@ -32,16 +32,12 @@ public class UserController {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    @Autowired
-    private BCryptPasswordEncoder bCryptPasswordEncoder;
-
     @Operation(summary = "Register a user")
     @ApiResponses(value = { @ApiResponse(responseCode = "200", description = "User registered successfully"),
 	    @ApiResponse(responseCode = "403", description = "You don't have permission to access this resource."),
 	    @ApiResponse(responseCode = "500", description = "An exception was thrown"), })
     @PostMapping()
-    @RequestMapping(method = RequestMethod.POST)
-    public UserApi Post(@Valid @RequestBody UserApi api) {
+    public UserApi save(@Valid @RequestBody UserApi api) {
 	api.setPassword(passwordEncoder.encode(api.getPassword()));
 	return userService.save(api);
     }
@@ -51,7 +47,6 @@ public class UserController {
 	    @ApiResponse(responseCode = "403", description = "You don't have permission to access this resource."),
 	    @ApiResponse(responseCode = "500", description = "An exception was thrown"), })
     @GetMapping("/listAll")
-    @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<UserApi>> listAll() {
 	return ResponseEntity.ok(userService.getAllUsers());
     }
