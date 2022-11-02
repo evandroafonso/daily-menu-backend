@@ -37,23 +37,23 @@ public class UserController {
 
     @Operation(summary = "Register a user")
     @ApiResponses(value = { @ApiResponse(responseCode = "200", description = "User registered successfully"),
-	    @ApiResponse(responseCode = "403", description = "You don't have permission to access this resource."),
-	    @ApiResponse(responseCode = "500", description = "An exception was thrown"), })
+            @ApiResponse(responseCode = "403", description = "You don't have permission to access this resource."),
+            @ApiResponse(responseCode = "500", description = "An exception was thrown"), })
     @PostMapping()
     @RequestMapping(method = RequestMethod.POST)
     public UserApi Post(@Valid @RequestBody UserApi api) {
-	api.setPassword(passwordEncoder.encode(api.getPassword()));
-	return userService.save(api);
+        api.setPassword(passwordEncoder.encode(api.getPassword()));
+        return userService.save(api);
     }
 
     @Operation(summary = "List all users")
     @ApiResponses(value = { @ApiResponse(responseCode = "200", description = "User listed successfully"),
-	    @ApiResponse(responseCode = "403", description = "You don't have permission to access this resource."),
-	    @ApiResponse(responseCode = "500", description = "An exception was thrown"), })
-    @GetMapping("/listAll")
+            @ApiResponse(responseCode = "403", description = "You don't have permission to access this resource."),
+            @ApiResponse(responseCode = "500", description = "An exception was thrown"), })
+    @GetMapping()
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<UserApi>> listAll() {
-	return ResponseEntity.ok(userService.getAllUsers());
+        return ResponseEntity.ok(userService.getAllUsers());
     }
 
 }

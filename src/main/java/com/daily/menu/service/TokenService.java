@@ -22,8 +22,6 @@ public class TokenService {
 
 	User usuario = (User) authentication.getPrincipal();
 
-	Date now = new Date();
-
 	return Jwts.builder().setIssuer("IRS").setSubject(usuario.getId().toString()).setIssuedAt(new Date())
 		.signWith(SignatureAlgorithm.HS256, secret).compact();
     }
