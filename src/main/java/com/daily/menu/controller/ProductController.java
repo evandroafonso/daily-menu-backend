@@ -28,21 +28,23 @@ public class ProductController {
 
     @Operation(summary = "Register a product")
     @ApiResponses(value = { @ApiResponse(responseCode = "200", description = "Product registered successfully"),
-	    @ApiResponse(responseCode = "403", description = "You don't have permission to access this resource."),
-	    @ApiResponse(responseCode = "500", description = "An exception was thrown"), })
+            @ApiResponse(responseCode = "403", description = "You don't have permission to access this resource."),
+            @ApiResponse(responseCode = "500", description = "An exception was thrown"), })
     @PostMapping()
-    public ProductApi save(@Valid @RequestBody ProductApi api) {
-	return productService.save(api);
+    @RequestMapping(method = RequestMethod.POST)
+    public ProductApi Post(@Valid @RequestBody ProductApi api) {
+        return productService.save(api);
     }
 
     @Operation(summary = "Returns a list of products")
     @ApiResponses(value = {
-	    @ApiResponse(responseCode = "200", description = "A product list was successfully returned"),
-	    @ApiResponse(responseCode = "403", description = "You don't have permission to access this resource."),
-	    @ApiResponse(responseCode = "500", description = "An exception was thrown"), })
-    @GetMapping("/listAll")
-    public List<ProductApi> listAll() {
-	return productService.getAllProducts();
+            @ApiResponse(responseCode = "200", description = "A product list was successfully returned"),
+            @ApiResponse(responseCode = "403", description = "You don't have permission to access this resource."),
+            @ApiResponse(responseCode = "500", description = "An exception was thrown"), })
+    @GetMapping()
+    @RequestMapping(method = RequestMethod.GET)
+    public List<ProductApi> Get() {
+        return productService.getAllProducts();
     }
 
 }

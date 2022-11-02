@@ -15,26 +15,25 @@ import com.daily.menu.repository.ProductRepository;
 @Service
 public class ProductService {
 
-	@Autowired
-	private ProductRepository productRepository;
-	
-	@Autowired
-	private ProductConverter productConverter;
-	
-	@Transactional
-	public ProductApi save(ProductApi api) {
-		
-		Product entity = productConverter.toEntity(api);
-		
-		return productConverter.toApi(productRepository.save(entity));
-	}
+    @Autowired
+    private ProductRepository productRepository;
 
-	public List<ProductApi> getAllProducts() {
-		
-		List<Product> entity = productRepository.findAll();
-		
-		return productConverter.toListApi(entity);
-	}
-	
-	
+    @Autowired
+    private ProductConverter productConverter;
+
+    @Transactional
+    public ProductApi save(ProductApi api) {
+
+        Product entity = productConverter.toEntity(api);
+
+        return productConverter.toApi(productRepository.save(entity));
+    }
+
+    public List<ProductApi> getAllProducts() {
+
+        List<Product> entity = productRepository.findAll();
+
+        return productConverter.toListApi(entity);
+    }
+
 }

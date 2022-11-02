@@ -2,34 +2,34 @@ package com.daily.menu.api;
 
 public class UserApi {
 
-	private Long id;
-	
-	private String email;
-	
-	private String password;
+    private Long id;
 
-	public Long getId() {
-		return id;
-	}
+    private String email;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    private String password;
 
-	public String getEmail() {
-		return email;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
 }

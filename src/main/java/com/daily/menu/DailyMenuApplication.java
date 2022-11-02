@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class DailyMenuApplication {
 
     public static void main(String[] args) {
-	SpringApplication.run(DailyMenuApplication.class, args);
+        SpringApplication.run(DailyMenuApplication.class, args);
     }
 
 }

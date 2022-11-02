@@ -15,52 +15,52 @@ import com.daily.menu.entity.baseEntity.BaseEntity;
 @Table(name = "user")
 public class User extends BaseEntity implements UserDetails {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Column(name = "username")
-	private String email;
-	
-	private String password;
+    @Column(name = "username")
+    private String email;
 
-	public String getUsername() {
-		return email;
-	}
+    private String password;
 
-	public void setUsername(String username) {
-		this.email = username;
-	}
+    public String getUsername() {
+        return email;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public void setUsername(String username) {
+        this.email = username;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public String getPassword() {
+        return password;
+    }
 
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return null;
-	}
-	
-	@Override
-	public boolean isAccountNonExpired() {
-		return true;
-	}
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-	@Override
-	public boolean isAccountNonLocked() {
-		return true;
-	}
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
+    }
 
-	@Override
-	public boolean isCredentialsNonExpired() {
-		return true;
-	}
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
 
-	@Override
-	public boolean isEnabled() {
-		return true;
-	}
-	
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
+
 }

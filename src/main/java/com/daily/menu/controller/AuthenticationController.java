@@ -26,15 +26,15 @@ public class AuthenticationController {
     private TokenService tokenService;
 
     @PostMapping
-    public ResponseEntity<TokenApi> login(@RequestBody @Validated UserApi useApi) {
-	UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(
-		useApi.getEmail(), useApi.getPassword());
+    public ResponseEntity<TokenApi> auth(@RequestBody @Validated UserApi useApi) {
+        UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(
+                useApi.getEmail(), useApi.getPassword());
 
-	Authentication authentication = authenticationManager.authenticate(usernamePasswordAuthenticationToken);
+        Authentication authentication = authenticationManager.authenticate(usernamePasswordAuthenticationToken);
 
-	String token = tokenService.generateToken(authentication);
+        String token = tokenService.generateToken(authentication);
 
-	return ResponseEntity.ok(TokenApi.builder().type("Bearer").token(token).build());
+        return ResponseEntity.ok(TokenApi.builder().type("Bearer").token(token).build());
 
     }
 
