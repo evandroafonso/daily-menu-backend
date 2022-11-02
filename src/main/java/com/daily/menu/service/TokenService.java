@@ -20,24 +20,24 @@ public class TokenService {
 
     public String generateToken(Authentication authentication) {
 
-	User usuario = (User) authentication.getPrincipal();
+        User usuario = (User) authentication.getPrincipal();
 
-	return Jwts.builder().setIssuer("IRS").setSubject(usuario.getId().toString()).setIssuedAt(new Date())
-		.signWith(SignatureAlgorithm.HS256, secret).compact();
+        return Jwts.builder().setIssuer("IRS").setSubject(usuario.getId().toString()).setIssuedAt(new Date())
+                .signWith(SignatureAlgorithm.HS256, secret).compact();
     }
 
     public boolean isTokenValid(String token) {
-	try {
-	    Jwts.parser().setSigningKey(secret).parseClaimsJws(token);
-	    return true;
-	} catch (Exception e) {
-	    return false;
-	}
+        try {
+            Jwts.parser().setSigningKey(secret).parseClaimsJws(token);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     public Long getTokenId(String token) {
-	Claims body = Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
-	return Long.valueOf(body.getSubject());
+        Claims body = Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
+        return Long.valueOf(body.getSubject());
     }
 
 }

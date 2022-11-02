@@ -1,45 +1,45 @@
 package com.daily.menu.api;
 
 public class ProductApi {
-	
-	private Long id;
-	
-	private String name;
-	
-	private String feature;
-	
-	private Integer quantity;
 
-	public Long getId() {
-		return id;
-	}
+    private Long id;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    private String name;
 
-	public String getName() {
-		return name;
-	}
+    private String feature;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    private Integer quantity;
 
-	public String getFeature() {
-		return feature;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setFeature(String feature) {
-		this.feature = feature;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public Integer getQuantity() {
-		return quantity;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setQuantity(Integer quantity) {
-		this.quantity = quantity;
-	}
-	
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getFeature() {
+        return feature;
+    }
+
+    public void setFeature(String feature) {
+        this.feature = feature;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
 }

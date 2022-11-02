@@ -1,7 +1,6 @@
 package com.daily.menu.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,23 +21,23 @@ public class UserService {
 
     public UserApi save(UserApi api) {
 
-	User entity = userConverter.toEntity(api);
+        User entity = userConverter.toEntity(api);
 
-	return userConverter.toApi(userRepository.save(entity));
+        return userConverter.toApi(userRepository.save(entity));
     }
 
     public List<UserApi> getAllUsers() {
 
-	List<User> entity = userRepository.findAll();
+        List<User> entity = userRepository.findAll();
 
-	return userConverter.toListApi(entity);
+        return userConverter.toListApi(entity);
     }
 
     public UserApi getUserByEmail(String email) {
 
-	User entity = userRepository.findByEmail(email);
+        User entity = userRepository.findByEmail(email);
 
-	return userConverter.toApi(entity);
+        return userConverter.toApi(entity);
     }
 
 }
