@@ -7,12 +7,11 @@ import com.daily.menu.entity.Product;
 
 class ProductServiceTest {
 
-	@Test
-	@DisplayName("Teste Cadastro Produto")
-	void register() {
-		Product product = new Product();
-		
-		
-	}
+    @Test
+    @DisplayName("Teste Cadastro Produto")
+    void register() {
+        Product product = new Product();
+
+    }
 
 }

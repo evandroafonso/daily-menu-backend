@@ -15,6 +15,9 @@ import io.jsonwebtoken.SignatureAlgorithm;
 @Service
 public class TokenService {
 
+    @Value("${jwt.expiration}")
+    private String expiration;
+
     @Value("${jwt.secret}")
     private String secret;
 
@@ -22,7 +25,13 @@ public class TokenService {
 
         User usuario = (User) authentication.getPrincipal();
 
-        return Jwts.builder().setIssuer("IRS").setSubject(usuario.getId().toString()).setIssuedAt(new Date())
+        Date currentDate = new Date();
+        Date expirationDate = new Date(currentDate.getTime() + Long.parseLong(expiration));
+
+        return Jwts.builder().setIssuer("IRS")
+                .setSubject(usuario.getId().toString())
+                .setIssuedAt(currentDate)
+                .setExpiration(expirationDate)
                 .signWith(SignatureAlgorithm.HS256, secret).compact();
     }
 

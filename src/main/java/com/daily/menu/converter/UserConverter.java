@@ -24,6 +24,7 @@ public class UserConverter {
     public UserApi toApi(User entity) {
         UserApi api = new UserApi();
 
+        api.setId(entity.getId());
         api.setEmail(entity.getUsername());
         api.setPassword(entity.getPassword());
 
