@@ -34,11 +34,11 @@ public class SecurityConfiguration {
     }
 
     @Bean
-
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/login").permitAll()
-                .antMatchers("/swagger-ui/index.html").permitAll()
+                .antMatchers("/swagger-ui/**").permitAll()
+                .antMatchers("/api-docs/**").permitAll()
                 .anyRequest().authenticated()
                 .and().csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -53,4 +53,5 @@ public class SecurityConfiguration {
             throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
+
 }

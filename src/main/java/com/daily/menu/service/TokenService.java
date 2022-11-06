@@ -2,11 +2,14 @@ package com.daily.menu.service;
 
 import java.util.Date;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.daily.menu.entity.User;
+import com.daily.menu.repository.UserRepository;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -21,10 +24,12 @@ public class TokenService {
     @Value("${jwt.secret}")
     private String secret;
 
+    @Autowired
+    private UserRepository userRepository;
+
     public String generateToken(Authentication authentication) {
 
         User usuario = (User) authentication.getPrincipal();
-
         Date currentDate = new Date();
         Date expirationDate = new Date(currentDate.getTime() + Long.parseLong(expiration));
 
@@ -47,6 +52,13 @@ public class TokenService {
     public Long getTokenId(String token) {
         Claims body = Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody();
         return Long.valueOf(body.getSubject());
+    }
+
+    public Long getLoggedUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        User user = userRepository.findByEmail(authentication.getName());
+        return user.getId();
+
     }
 
 }

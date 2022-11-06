@@ -26,9 +26,9 @@ public class AuthenticationController {
     private TokenService tokenService;
 
     @PostMapping
-    public ResponseEntity<TokenApi> auth(@RequestBody @Validated UserApi useApi) {
+    public ResponseEntity<TokenApi> auth(@RequestBody @Validated UserApi userApi) {
         UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(
-                useApi.getEmail(), useApi.getPassword());
+                userApi.getEmail(), userApi.getPassword());
 
         Authentication authentication = authenticationManager.authenticate(usernamePasswordAuthenticationToken);
 
