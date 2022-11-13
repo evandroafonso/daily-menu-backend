@@ -2,6 +2,8 @@ package com.daily.menu.service;
 
 import java.util.Date;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
@@ -17,6 +19,8 @@ import io.jsonwebtoken.SignatureAlgorithm;
 
 @Service
 public class TokenService {
+
+    Logger logger = LoggerFactory.getLogger(TokenService.class);
 
     @Value("${jwt.expiration}")
     private String expiration;
@@ -45,6 +49,7 @@ public class TokenService {
             Jwts.parser().setSigningKey(secret).parseClaimsJws(token);
             return true;
         } catch (Exception e) {
+            logger.error("Acesso não permitido, token experirado!");
             return false;
         }
     }
