@@ -57,6 +57,7 @@ mvn clean compile
    - [Spring Tools Suite - STS](https://spring.io/tools) (ou qualquer outra que você prefira)
    - [MySQL versão 8.0.31](https://dev.mysql.com/downloads/mysql/) - para desenvolvimento local eu utilizo o editor [DBeaver](https://dbeaver.io/), mas fique a vontade para usar o que preferir.
      Aqui é importante criar um usuário para o banco de dados local e guardar essas credenciais para que você possa utiliza-las no próximo passo.
+   - [Postman](https://www.postman.com/downloads/) após o download, você pode importar a collection do Daily Menu utilizando esse [link](https://www.getpostman.com/collections/f2324b3625c35b743c31)
 4. será necessário configurar as variáveis de ambiente do seu projeto local para que seja possível a conexão com o banco de dados, login com JWT e demais configurações. Essas variáveis estão declaradas no arquivo _**application.properties**_ do projeto. Caso tenha dúvidas como criar variáveis de ambiente para o projeto, você pode [aprender mais com esse vídeo a partir de 08:45](https://www.youtube.com/watch?v=sXrZNGWVHVA)
 5. para criar as tabelas em seu banco de dados local e atualiza-las conforme o "ambiente de produção" será necessário rodar o comando do **WildFly**. Esse comando criará todas as tabelas e atualizações do banco de dados que existe até o momento. Entre na pasta raiz do projeto, abra o terminal e rode o comando abaixo:
 
