@@ -10,9 +10,6 @@ Create your daily menu and organize your food routine with Daily Menu
 
 ## _Main features -- in progress_
 
-_**Note:** these features is in progress yet._
-
-- Register the products available in your stock
 - Make a shopping list
 - Create your daily menu
 
