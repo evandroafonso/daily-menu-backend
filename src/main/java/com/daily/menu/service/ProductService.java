@@ -2,8 +2,6 @@ package com.daily.menu.service;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +9,8 @@ import com.daily.menu.api.ProductApi;
 import com.daily.menu.converter.ProductConverter;
 import com.daily.menu.entity.Product;
 import com.daily.menu.repository.ProductRepository;
+
+import jakarta.transaction.Transactional;
 
 @Service
 public class ProductService {

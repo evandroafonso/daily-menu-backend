@@ -1,9 +1,9 @@
 package com.daily.menu.entity;
 
-import javax.persistence.Entity;
-import javax.validation.constraints.NotNull;
-
 import com.daily.menu.entity.baseEntity.BaseEntity;
+
+import jakarta.persistence.Entity;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class Product extends BaseEntity {
