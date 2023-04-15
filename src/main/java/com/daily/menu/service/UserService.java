@@ -19,24 +19,22 @@ public class UserService {
     @Autowired
     private UserConverter userConverter;
 
+    @Autowired
+    private TokenService tokenService;
+
     public UserApi save(UserApi api) {
-
         User entity = userConverter.toEntity(api);
-
+        entity.setIdUser(tokenService.getLoggedUser());
         return userConverter.toApi(userRepository.save(entity));
     }
 
     public List<UserApi> getAllUsers() {
-
         List<User> entity = userRepository.findAll();
-
         return userConverter.toListApi(entity);
     }
 
     public UserApi getUserByEmail(String email) {
-
         User entity = userRepository.findByEmail(email);
-
         return userConverter.toApi(entity);
     }
 

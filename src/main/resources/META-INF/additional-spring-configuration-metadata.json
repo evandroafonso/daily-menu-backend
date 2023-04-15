@@ -8,5 +8,190 @@
     "name": "jwt.secret",
     "type": "java.lang.String",
     "description": "A description for 'jwt.secret'"
+  },
+  {
+    "name": "jwt.expiration",
+    "type": "java.lang.String",
+    "description": "A description for 'jwt.expiration'"
+  },
+  {
+    "name": "${DATABASE_URL}",
+    "type": "java.lang.String",
+    "description": "A description for '${DATABASE_URL}'"
+  },
+  {
+    "name": "${DATABASE_URL}",
+    "type": "java.lang.String",
+    "description": "A description for '${DATABASE_URL}'"
+  },
+  {
+    "name": "${DATABASE_URL}",
+    "type": "java.lang.String",
+    "description": "A description for '${DATABASE_URL}'"
+  },
+  {
+    "name": "${DATABASE_URL}",
+    "type": "java.lang.String",
+    "description": "A description for '${DATABASE_URL}'"
+  },
+  {
+    "name": "${DATABASE_URL}",
+    "type": "java.lang.String",
+    "description": "A description for '${DATABASE_URL}'"
+  },
+  {
+    "name": "${DATABASE_URL}",
+    "type": "java.lang.String",
+    "description": "A description for '${DATABASE_URL}'"
+  },
+  {
+    "name": "${DATABASE_URL}",
+    "type": "java.lang.String",
+    "description": "A description for '${DATABASE_URL}'"
+  },
+  {
+    "name": "${DATABASE_URL}",
+    "type": "java.lang.String",
+    "description": "A description for '${DATABASE_URL}'"
+  },
+  {
+    "name": "${DATABASE_URL}",
+    "type": "java.lang.String",
+    "description": "A description for '${DATABASE_URL}'"
+  },
+  {
+    "name": "${DATABASE_URL}",
+    "type": "java.lang.String",
+    "description": "A description for '${DATABASE_URL}'"
+  },
+  {
+    "name": "${DATABASE_URL}",
+    "type": "java.lang.String",
+    "description": "A description for '${DATABASE_URL}'"
+  },
+  {
+    "name": "DATABASE_URL",
+    "type": "java.lang.String",
+    "description": "A description for 'DATABASE_URL'"
+  },
+  {
+    "name": "DATABASE_URL",
+    "type": "java.lang.String",
+    "description": "A description for 'DATABASE_URL'"
+  },
+  {
+    "name": "DATABASE_URL",
+    "type": "java.lang.String",
+    "description": "A description for 'DATABASE_URL'"
+  },
+  {
+    "name": "DATABASE_URL",
+    "type": "java.lang.String",
+    "description": "A description for 'DATABASE_URL'"
+  },
+  {
+    "name": "DATABASE_URL",
+    "type": "java.lang.String",
+    "description": "A description for 'DATABASE_URL'"
+  },
+  {
+    "name": "DATABASE_URL",
+    "type": "java.lang.String",
+    "description": "A description for 'DATABASE_URL'"
+  },
+  {
+    "name": "DATABASE_URL",
+    "type": "java.lang.String",
+    "description": "A description for 'DATABASE_URL'"
+  },
+  {
+    "name": "DATABASE_URL",
+    "type": "java.lang.String",
+    "description": "A description for 'DATABASE_URL'"
+  },
+  {
+    "name": "DATABASE_URL",
+    "type": "java.lang.String",
+    "description": "A description for 'DATABASE_URL'"
+  },
+  {
+    "name": "DATABASE_USERNAME",
+    "type": "java.lang.String",
+    "description": "A description for 'DATABASE_USERNAME'"
+  },
+  {
+    "name": "DATABASE_PASSWORD",
+    "type": "java.lang.String",
+    "description": "A description for 'DATABASE_PASSWORD'"
+  },
+  {
+    "name": "DATABASE_PASSWORD",
+    "type": "java.lang.String",
+    "description": "A description for 'DATABASE_PASSWORD'"
+  },
+  {
+    "name": "DATABASE_PASSWORD",
+    "type": "java.lang.String",
+    "description": "A description for 'DATABASE_PASSWORD'"
+  },
+  {
+    "name": "DATABASE_PASSWORD",
+    "type": "java.lang.String",
+    "description": "A description for 'DATABASE_PASSWORD'"
+  },
+  {
+    "name": "DATABASE_PASSWORD",
+    "type": "java.lang.String",
+    "description": "A description for 'DATABASE_PASSWORD'"
+  },
+  {
+    "name": "JWT_SECRET",
+    "type": "java.lang.String",
+    "description": "A description for 'JWT_SECRET'"
+  },
+  {
+    "name": "DATABASE_URL",
+    "type": "java.lang.String",
+    "description": "A description for 'DATABASE_URL'"
+  },
+  {
+    "name": "DATABASE_URL",
+    "type": "java.lang.String",
+    "description": "A description for 'DATABASE_URL'"
+  },
+  {
+    "name": "DATABASE_URL",
+    "type": "java.lang.String",
+    "description": "A description for 'DATABASE_URL'"
+  },
+  {
+    "name": "DATABASE_URL",
+    "type": "java.lang.String",
+    "description": "A description for 'DATABASE_URL'"
+  },
+  {
+    "name": "DATABASE_URL",
+    "type": "java.lang.String",
+    "description": "A description for 'DATABASE_URL'"
+  },
+  {
+    "name": "DATABASE_URL",
+    "type": "java.lang.String",
+    "description": "A description for 'DATABASE_URL'"
+  },
+  {
+    "name": "DATABASE_USERNAME",
+    "type": "java.lang.String",
+    "description": "A description for 'DATABASE_USERNAME'"
+  },
+  {
+    "name": "DATABASE_USERNAME",
+    "type": "java.lang.String",
+    "description": "A description for 'DATABASE_USERNAME'"
+  },
+  {
+    "name": "DATABASE_USERNAME",
+    "type": "java.lang.String",
+    "description": "A description for 'DATABASE_USERNAME'"
   }
 ]}

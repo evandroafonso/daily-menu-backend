@@ -21,18 +21,18 @@ public class ProductService {
     @Autowired
     private ProductConverter productConverter;
 
+    @Autowired
+    private TokenService tokenService;
+
     @Transactional
     public ProductApi save(ProductApi api) {
-
         Product entity = productConverter.toEntity(api);
-
+        entity.setIdUser(tokenService.getLoggedUser());
         return productConverter.toApi(productRepository.save(entity));
     }
 
     public List<ProductApi> getAllProducts() {
-
         List<Product> entity = productRepository.findAll();
-
         return productConverter.toListApi(entity);
     }
 
